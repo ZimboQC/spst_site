@@ -270,8 +270,20 @@
     border-top:1px solid rgba(255,255,255,.1); margin-top:28px; padding-top:18px;
     font-size:12px; color:#7f88a8;
   }
-  footer a.plain{color:#fff; text-decoration:underline; text-underline-offset:2px;}
-  footer a.plain:hover{color:var(--yellow);}
+  footer .contact-line{
+    display:flex; align-items:center; gap:8px;
+    color:#fff; margin-top:8px; max-width:100%;
+  }
+  footer .contact-line:hover{color:var(--yellow);}
+  footer .contact-line span{
+    width:36px; height:36px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.22);
+    flex-shrink:0; color:#fff;
+  }
+  footer .contact-line span svg{width:16px; height:16px; fill:currentColor;}
+  footer .contact-line em{font-style:normal; word-break:break-all;}
 
   .socials{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
   .socials a{
@@ -543,8 +555,18 @@
       </div>
       <div class="col">
         <strong>Contact</strong>
-        (579) 489-8170<br>
-        <a class="plain" href="mailto:comite-sainthyacinthe@pq.org">comite-sainthyacinthe@pq.org</a>
+        <a class="contact-line" href="tel:+15794898170">
+          <em>(579) 489-8170</em>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </span>
+        </a>
+        <a class="contact-line" href="mailto:comite-sainthyacinthe@pq.org">
+          <em>comite-sainthyacinthe@pq.org</em>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+        </a>
       </div>
       <div class="col">
         <strong>Médias sociaux</strong>
@@ -565,7 +587,7 @@
       </div>
     </div>
     <div class="container bottom">
-      Autorisé par l'agent officiel de Simon-Pierre Savard-Tremblay
+      Autorisé par Sylvain Gauthier, agent officiel du Parti Québécois
     </div>
   </footer>
 
