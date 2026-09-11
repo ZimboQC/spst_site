@@ -96,7 +96,7 @@ window.SPST = {
     {
       tag: "Aînés",
       title: "Reconnaissance et autonomie pour nos aînées et aînés",
-      text: "Placer nos bâtisseurs au cœur de ses priorités en leur redonnant les moyens de leur autonomie.",
+      text: "Placer nos bâtisseurs au cœur de nos priorités en leur redonnant les moyens de leur autonomie.",
       links: [
         { type: "parti", href: "https://pq.org/nouvelles/le-parti-quebecois-presente-son-plan-pour-le-soutien-a-domicile-des-aines/" }
       ]
@@ -107,7 +107,8 @@ window.SPST = {
       text: "Investir et mettre en place des mesures là où les besoins se trouvent.",
       links: [
         { type: "parti", href: "https://pq.org/nouvelles/le-parti-quebecois-va-detaxer-les-biens-et-les-voitures-usages-pour-retourner-des-milliers-de-dollars-dans-le-portefeuille-des-familles/" },
-        { type: "parti", href: "https://pq.org/nouvelles/le-parti-quebecois-va-investir-100-millions-de-dollars-supplementaire-pour-financer-laide-et-la-securite-alimentaire/" }
+        { type: "parti", href: "https://pq.org/nouvelles/le-parti-quebecois-va-investir-100-millions-de-dollars-supplementaire-pour-financer-laide-et-la-securite-alimentaire/" },
+        { type: "parti", href: "https://pq.org/nouvelles/le-parti-quebecois-sattaque-a-la-hausse-du-cout-de-lessence-en-reduisant-les-taxes-et-en-offrant-un-remboursement-aux-menages-les-moins-nantis/" }
       ]
     },
     {
