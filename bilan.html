@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilan — Simon-Pierre Savard-Tremblay</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e1f4d;
+    --navy-deep:#091333;
+    --blue:#1f5aa8;
+    --blue-light:#eef3fb;
+    --purple:#6b46c1;
+    --yellow:#c9a227;
+    --gray-bg:#f5f6f9;
+    --text-dark:#14213d;
+    --text-body:#4a5170;
+    --border:#dfe4f0;
+    --nav-h:84px;
+    --brand-grad:linear-gradient(135deg, #003da5, #1e295c);
+  }
+  html{scroll-padding-top:var(--nav-h); scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--text-body);
+    background:#fff;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins', sans-serif;
+    color:var(--text-dark);
+    line-height:1.15;
+  }
+  a{color:inherit; text-decoration:none;}
+  .container{max-width:1120px; margin:0 auto; padding:0 32px;}
+
+  .topbar{
+    background:var(--navy-deep);
+    color:#fff;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+  .topbar .container{
+    display:flex; justify-content:space-between; align-items:center;
+    height:38px;
+  }
+  .topbar .pill{
+    background:var(--yellow); color:var(--navy-deep); font-weight:700;
+    padding:3px 12px; border-radius:100px; font-size:12px;
+  }
+  .topbar a.pill:hover{filter:brightness(1.08);}
+  .nav-socials{display:none;}
+
+  nav{
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; background:#fff; z-index:10;
+  }
+  nav .container{
+    display:flex; align-items:center; justify-content:space-between;
+    height:84px; gap:24px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+  .brand .mark{
+    width:56px; height:56px;
+    box-sizing:border-box;
+    padding:7px;
+    border-radius:10px;
+    background:#1e295c;
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  }
+  .brand .mark svg{width:100%; height:100%; display:block;}
+  .brand .name{
+    font-weight:800; font-size:17px; line-height:1.2; color:var(--navy);
+    white-space:nowrap;
+  }
+  .brand .riding{
+    font-size:12px; color:var(--text-body); font-weight:500;
+    white-space:nowrap;
+  }
+  .navlinks{display:flex; gap:22px; font-weight:600; font-size:14px; color:var(--navy); flex-shrink:0;}
+  .navlinks a[aria-current="page"]{color:var(--blue);}
+  .navcta{display:flex; gap:10px; flex-shrink:0;}
+  .btn{
+    padding:11px 20px; border-radius:8px; font-weight:700; font-size:14px;
+    display:inline-block; white-space:nowrap;
+  }
+  .btn-gradient{background:var(--brand-grad); color:#fff;}
+  .btn-outline{border:1.5px solid var(--navy); color:var(--navy);}
+
+  .page-hero{
+    background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 65%, #060c26 100%);
+    color:#fff; padding:48px 0 40px;
+  }
+  .eyebrow{
+    font-size:13px; font-weight:700; color:var(--yellow);
+    margin-bottom:10px;
+  }
+  .page-hero h1{font-size:36px; color:#fff; margin-bottom:18px; max-width:18ch;}
+  .page-hero p{font-size:15.5px; color:#c8d1ea; max-width:68ch; margin-bottom:12px; overflow-wrap:break-word;}
+  .toc{display:flex; flex-wrap:wrap; gap:10px; margin:4px 0 22px;}
+  .toc a{
+    color:#fff; font-weight:600; font-size:13.5px;
+    border:1px solid rgba(255,255,255,.35);
+    padding:7px 14px; border-radius:100px;
+  }
+  .toc a:hover{background:rgba(255,255,255,.12);}
+
+  section{padding:56px 0;}
+  .page-hero{padding:48px 0 40px;}
+  .bilan-block:nth-child(even){background:var(--gray-bg);}
+  .bilan-block h2{font-size:24px; margin-bottom:8px;}
+  .bilan-list{list-style:none; margin-top:12px;}
+  .bilan-list li{
+    display:flex; gap:14px; padding:14px 0;
+    border-bottom:1px solid var(--border);
+    font-size:15px;
+  }
+  .bilan-list li:last-child{border-bottom:none;}
+  .bilan-list .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--purple);
+    margin-top:8px; flex-shrink:0;
+  }
+
+  .final{
+    background:var(--brand-grad);
+    color:#fff; text-align:center;
+  }
+  .final h2{color:#fff; font-size:30px; margin-bottom:14px;}
+  .final p{color:#e3e8fb; max-width:52ch; margin:0 auto 28px;}
+  .final .btn-row{display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
+  .final .btn-outline{border-color:rgba(255,255,255,.6); color:#fff;}
+  .final .btn-white{background:#fff; color:var(--navy);}
+
+  footer{background:var(--navy-deep); color:#aab3d1; padding:40px 0 28px; font-size:13.5px;}
+  footer .container{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  footer strong{color:#fff; display:block; margin-bottom:6px; font-size:14px;}
+  footer .col{min-width:200px;}
+  footer .bottom{
+    border-top:1px solid rgba(255,255,255,.1); margin-top:28px; padding-top:18px;
+    font-size:12px; color:#7f88a8;
+  }
+  footer .contact-line{
+    display:flex; align-items:center; gap:8px;
+    color:#fff; margin-top:8px; max-width:100%;
+  }
+  footer .contact-line:hover{color:var(--yellow);}
+  footer .contact-line span{
+    width:36px; height:36px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.22);
+    flex-shrink:0; color:#fff;
+  }
+  footer .contact-line span svg{width:16px; height:16px; fill:currentColor;}
+  footer .contact-line em{font-style:normal; word-break:break-all;}
+  .socials{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+  .socials a{
+    width:36px; height:36px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.12); color:#fff;
+    border:1px solid rgba(255,255,255,.22);
+  }
+  .socials a:hover{background:rgba(255,255,255,.24);}
+  .socials svg{width:16px; height:16px; fill:currentColor; display:block;}
+  footer .socials{margin-top:10px;}
+  footer .socials a{background:rgba(255,255,255,.08);}
+  footer .more{color:#fff; display:block; margin-top:10px;}
+  footer .more:hover{color:var(--yellow);}
+
+  @media (max-width:1100px){
+    .navlinks{display:none;}
+    .navcta{display:none;}
+    .nav-socials{display:grid; grid-template-columns:repeat(2, 28px); gap:6px; flex-shrink:0;}
+    .nav-socials a{
+      width:28px; height:28px; border-radius:50%;
+      display:inline-flex; align-items:center; justify-content:center;
+      background:var(--blue-light); color:var(--navy);
+      border:1px solid var(--border);
+    }
+    .nav-socials svg{width:13px; height:13px; fill:currentColor; display:block;}
+  }
+  @media (max-width:860px){
+    :root{--nav-h:72px;}
+    .container{padding:0 18px;}
+    .topbar .container{gap:10px; height:auto; min-height:38px; padding:6px 18px;}
+    .topbar span:first-child{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+    nav .container{height:auto; min-height:72px; padding:10px 18px; gap:12px;}
+    .brand .name{font-size:15px;}
+    .btn{padding:9px 14px; font-size:13px;}
+    .page-hero h1{font-size:28px;}
+    footer .container{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>CAMPAGNE ÉLECTORALE — 5 OCTOBRE</span>
+      <a class="pill" href="https://docs.google.com/forms/d/e/1FAIpQLSdI4J6sxR7lOWfZi_cOEMPE2mH1FVCjOaFvioKjw6k94ga7Nw/viewform" target="_blank" rel="noopener noreferrer">S'IMPLIQUER</a>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container">
+      <a class="brand" href="apercu2.html">
+        <div class="mark">
+          <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#ffffff" d="M135.57,55.47c-8.27,2.85-16.6,5.49-23.55,11.33-11.01-42.15-68.77-40.73-77.62,1.3-6.28,30.08,25.26,56.78,53.41,44.31,1.2-.52,2.36-1.18,3.43-1.93,4.38-3.08,4.36-9.14,0-12.26-4.78-3.48-10.31-1.21-15.27,.58-1.92-3.18-1.96-6.51-1.04-9.96,3.32-12.41,19.75-16.43,28.1-7.27,1.34,1.47,2.56,3.04,3.92,4.67,6.7-16.83,14.46-17.64,30.13-23.15,2.28,12.69,3.4,28.64-8.3,37.12,1.19,.41,2.04,.62,2.81,.97,2.72,1.26,5.6,2.28,8.07,3.92,12.71,7.94,5.8,28.38-8.53,29.06-.13-1.14-.26-2.12-.36-3.1-.7-6.39-5.96-10.02-12.1-8.12-4.98,1.69-9.03,5.35-13.23,8.41-11.07,8.48-25.28,11.75-39.02,9.89C17.85,136.5-8.53,80.22,18.33,39.74,47.39-6.8,119.61,3,135.57,55.47Z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="name">Simon-Pierre<br>Savard-Tremblay</div>
+          <div class="riding">Candidat — Saint-Hyacinthe</div>
+        </div>
+      </a>
+      <div class="navlinks">
+        <a href="apercu2.html#parcours">Parcours</a>
+        <a href="apercu2.html#engagements">Engagements</a>
+        <a href="bilan.html" aria-current="page">Bilan</a>
+        <a href="https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf" data-plateforme target="_blank" rel="noopener noreferrer">Programme</a>
+      </div>
+      <div class="navcta">
+        <a class="btn btn-gradient" href="https://pq.org/devenir-membre/" target="_blank" rel="noopener noreferrer">Devenir membre</a>
+        <a class="btn btn-gradient" href="https://pq.org/dons/" target="_blank" rel="noopener noreferrer">Faire un don</a>
+      </div>
+      <div class="nav-socials">
+        <a href="https://www.facebook.com/SPSTremblay" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/simonpierresavardtremblay/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </a>
+        <a href="https://x.com/SPSTremblay" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/simon-pierre-savard-tremblay-861a41100/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">SAINT-HYACINTHE · 2019–2026</div>
+      <h1 id="bilan-title"></h1>
+      <div class="toc" id="bilan-toc" role="navigation" aria-label="Sections du bilan"></div>
+      <div id="bilan-intro"></div>
+    </div>
+  </section>
+
+  <div id="bilan-sections"></div>
+
+  <section class="final" id="implication">
+    <div class="container">
+      <h2>Le 5 octobre, faisons le choix de la confiance.</h2>
+      <p>Joignez-vous à l'équipe pour donner à Saint-Hyacinthe le poids qu'elle mérite.</p>
+      <div class="btn-row">
+        <a class="btn btn-white" href="https://docs.google.com/forms/d/e/1FAIpQLSdI4J6sxR7lOWfZi_cOEMPE2mH1FVCjOaFvioKjw6k94ga7Nw/viewform" target="_blank" rel="noopener noreferrer">S'impliquer</a>
+        <a class="btn btn-outline" href="https://pq.org/devenir-membre/" target="_blank" rel="noopener noreferrer">Devenir membre</a>
+        <a class="btn btn-outline" href="https://pq.org/dons/" target="_blank" rel="noopener noreferrer">Faire un don</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="col">
+        <strong>Simon-Pierre Savard-Tremblay</strong>
+        Candidat, Parti Québécois<br>Circonscription de Saint-Hyacinthe
+      </div>
+      <div class="col">
+        <strong>Contact</strong>
+        <a class="contact-line" href="tel:+15794898170">
+          <em>(579) 489-8170</em>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </span>
+        </a>
+        <a class="contact-line" href="mailto:comite-sainthyacinthe@pq.org">
+          <em>comite-sainthyacinthe@pq.org</em>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="col">
+        <strong>Médias sociaux</strong>
+        <div class="socials">
+          <a href="https://www.facebook.com/SPSTremblay" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/simonpierresavardtremblay/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          </a>
+          <a href="https://x.com/SPSTremblay" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/simon-pierre-savard-tremblay-861a41100/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.05c.53-1 1.84-2.1 3.79-2.1 4.05 0 4.8 2.67 4.8 6.14V24h-4v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <strong>En savoir plus</strong>
+        <a class="more" href="apercu2.html">Retour à l'accueil →</a>
+        <a class="more" href="https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf" data-plateforme target="_blank" rel="noopener noreferrer">Programme du Parti Québécois →</a>
+        <a class="more" href="qr/">Code QR du site →</a>
+      </div>
+    </div>
+    <div class="container bottom">
+      Autorisé par Sylvain Gauthier, agent officiel du Parti Québécois
+    </div>
+  </footer>
+
+  <script src="engagements.js"></script>
+  <script src="bilan.js"></script>
+  <script>
+    (function () {
+      var cfg = window.SPST || {};
+      document.querySelectorAll("[data-plateforme]").forEach(function (a) {
+        if (cfg.plateformeUrl) a.setAttribute("href", cfg.plateformeUrl);
+      });
+      var b = window.SPST_BILAN;
+      if (!b) return;
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+      var title = document.getElementById("bilan-title");
+      if (title && b.title) title.textContent = b.title;
+      var intro = document.getElementById("bilan-intro");
+      if (intro && b.intro) {
+        intro.innerHTML = b.intro.map(function (p) {
+          return "<p>" + esc(p) + "</p>";
+        }).join("");
+      }
+      var toc = document.getElementById("bilan-toc");
+      var wrap = document.getElementById("bilan-sections");
+      if (!wrap || !b.sections) return;
+      if (toc) {
+        toc.innerHTML = b.sections.map(function (sec) {
+          return '<a href="#' + esc(sec.id) + '">' + esc(sec.title) + "</a>";
+        }).join("");
+      }
+      wrap.innerHTML = b.sections.map(function (sec) {
+        var items = (sec.items || []).map(function (item) {
+          return '<li><span class="dot"></span><span>' + esc(item) + "</span></li>";
+        }).join("");
+        return (
+          '<section class="bilan-block" id="' + esc(sec.id) + '">' +
+            '<div class="container">' +
+              "<h2>" + esc(sec.title) + "</h2>" +
+              '<ul class="bilan-list">' + items + "</ul>" +
+            "</div>" +
+          "</section>"
+        );
+      }).join("");
+    })();
+  </script>
+
+</body>
+</html>

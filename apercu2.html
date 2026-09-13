@@ -69,7 +69,7 @@
     display:flex; align-items:center; justify-content:space-between;
     height:84px; gap:24px;
   }
-  .brand{display:flex; align-items:center; gap:12px;}
+  .brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
   .brand .mark{
     width:56px; height:56px;
     box-sizing:border-box;
@@ -79,10 +79,16 @@
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
   }
   .brand .mark svg{width:100%; height:100%; display:block;}
-  .brand .name{font-weight:800; font-size:17px; line-height:1.2; color:var(--navy);}
-  .brand .riding{font-size:12px; color:var(--text-body); font-weight:500;}
-  .navlinks{display:flex; gap:28px; font-weight:600; font-size:14px; color:var(--navy);}
-  .navcta{display:flex; gap:10px;}
+  .brand .name{
+    font-weight:800; font-size:17px; line-height:1.2; color:var(--navy);
+    white-space:nowrap;
+  }
+  .brand .riding{
+    font-size:12px; color:var(--text-body); font-weight:500;
+    white-space:nowrap;
+  }
+  .navlinks{display:flex; gap:22px; font-weight:600; font-size:14px; color:var(--navy); flex-shrink:0;}
+  .navcta{display:flex; gap:10px; flex-shrink:0;}
   .btn{
     padding:11px 20px; border-radius:8px; font-weight:700; font-size:14px;
     display:inline-block; white-space:nowrap;
@@ -185,34 +191,55 @@
 
   /* Priorities grid */
   .priorities{background:var(--gray-bg);}
-  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch;}
   .card{
     background:#fff; border:1px solid var(--border); border-radius:14px;
     padding:24px;
     display:flex; flex-direction:column;
     height:100%;
+    min-width:0;
   }
   .card .tag{
     display:inline-block; font-size:11.5px; font-weight:700; color:var(--blue);
     background:var(--blue-light); padding:4px 10px; border-radius:100px; margin-bottom:14px;
   }
-  .card h3{font-size:16.5px; margin-bottom:8px;}
-  .card p{font-size:14px; flex:1;}
+  .card h3{font-size:16.5px; margin-bottom:8px; min-width:0; overflow-wrap:break-word;}
+  .card p{font-size:14px; flex:1; min-width:0; overflow-wrap:break-word;}
   .card-links{
     margin-top:auto; padding-top:16px;
     display:flex; flex-direction:column; gap:8px;
   }
   .card-links a{
     font-size:13px; font-weight:600; color:var(--blue);
-    display:inline-flex; align-items:center; gap:6px;
+    display:flex; align-items:flex-start; gap:6px;
+    max-width:100%;
   }
   .card-links a:hover{text-decoration:underline;}
-  .card-links a::after{content:"→";}
+  .card-links a::after{content:"→"; flex-shrink:0;}
   .section-head .platform-link{
     display:inline-block; margin-top:12px;
     font-size:14px; font-weight:700; color:var(--blue);
   }
   .section-head .platform-link:hover{text-decoration:underline;}
+  .engagements-note{
+    margin-top:28px; font-size:14px; color:var(--text-body);
+  }
+
+  /* Teaser bilan */
+  .bilan-teaser{background:#fff;}
+  .stats{
+    display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:18px; margin:8px 0 28px;
+  }
+  .stat{
+    background:var(--gray-bg); border-radius:14px; padding:22px 18px;
+    min-width:0;
+  }
+  .stat .num{
+    font-family:'Poppins', sans-serif; font-weight:800;
+    font-size:26px; color:var(--navy); line-height:1.1;
+  }
+  .stat .lbl{font-size:13.5px; margin-top:8px; overflow-wrap:break-word;}
 
   /* Parcours (bio) */
   .parcours .container{display:grid; grid-template-columns:6fr 4fr; gap:40px; align-items:center;}
@@ -316,12 +343,9 @@
   }
   footer .more:hover{color:var(--yellow);}
 
-  @media (max-width:860px){
-    :root{--nav-h:72px;}
-    .container{padding:0 18px;}
-    .topbar .container{gap:10px; height:auto; min-height:38px; padding:6px 18px;}
-    .topbar span:first-child{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-    .topbar a.pill{flex-shrink:0;}
+  @media (max-width:1100px){
+    .navlinks{display:none;}
+    .navcta{display:none;}
     .nav-socials{display:grid; grid-template-columns:repeat(2, 28px); gap:6px; flex-shrink:0;}
     .nav-socials a{
       width:28px; height:28px; border-radius:50%;
@@ -330,17 +354,23 @@
       border:1px solid var(--border);
     }
     .nav-socials svg{width:13px; height:13px; fill:currentColor; display:block;}
+  }
+  @media (max-width:860px){
+    :root{--nav-h:72px;}
+    .container{padding:0 18px;}
+    .topbar .container{gap:10px; height:auto; min-height:38px; padding:6px 18px;}
+    .topbar span:first-child{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+    .topbar a.pill{flex-shrink:0;}
     .hero h1{font-size:28px;}
-    .navlinks{display:none;}
     nav .container{height:auto; min-height:72px; padding:10px 18px; gap:12px;}
     .brand .name{font-size:15px;}
-    .navcta{display:none;}
     .btn{padding:9px 14px; font-size:13px;}
     .hero{padding-top:0; min-height:0;}
     .hero .container{grid-template-columns:1fr; padding:24px 18px 0; min-height:0;}
     .parcours .container{grid-template-columns:1fr;}
-    .grid-3{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:minmax(0,1fr);}
     .strip{grid-template-columns:1fr 1fr;}
+    .stats{grid-template-columns:1fr 1fr;}
     .hero h1{font-size:32px;}
     footer .container{flex-direction:column;}
   }
@@ -378,7 +408,8 @@
       <div class="navlinks">
         <a href="#parcours">Parcours</a>
         <a href="#engagements">Engagements</a>
-        <a href="https://pq.org/" data-plateforme target="_blank" rel="noopener noreferrer">Plateforme</a>
+        <a href="bilan.html">Bilan</a>
+        <a href="https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf" data-plateforme target="_blank" rel="noopener noreferrer">Programme</a>
       </div>
       <div class="navcta">
         <a class="btn btn-gradient" href="https://pq.org/devenir-membre/" target="_blank" rel="noopener noreferrer">Devenir membre</a>
@@ -480,12 +511,23 @@
     <div class="container">
       <div class="section-head">
         <h2>Engagements</h2>
-        <a class="platform-link" href="https://pq.org/" data-plateforme target="_blank" rel="noopener noreferrer">Consulter la plateforme du Parti Québécois →</a>
+        <a class="platform-link" href="https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf" data-plateforme target="_blank" rel="noopener noreferrer">Consulter le programme du Parti Québécois →</a>
       </div>
       <div class="grid-3" id="engagements-grid"></div>
+      <p class="engagements-note">Cette section sera mise à jour lorsque de nouveaux engagements seront annoncés.</p>
     </div>
   </section>
 
+  <section class="bilan-teaser" id="bilan">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="bilan-teaser-heading"></h2>
+        <p id="bilan-teaser-text"></p>
+      </div>
+      <div class="stats" id="bilan-teaser-stats"></div>
+      <a class="btn btn-outline" id="bilan-teaser-cta" href="bilan.html"></a>
+    </div>
+  </section>
 
   <section class="final" id="implication">
     <div class="container">
@@ -539,7 +581,8 @@
       </div>
       <div class="col">
         <strong>En savoir plus</strong>
-        <a class="more" href="https://pq.org/" data-plateforme target="_blank" rel="noopener noreferrer">Plateforme électorale →</a>
+        <a class="more" href="bilan.html">Bilan des 7 années →</a>
+        <a class="more" href="https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf" data-plateforme target="_blank" rel="noopener noreferrer">Programme du Parti Québécois →</a>
         <a class="more" href="qr/">Code QR du site →</a>
         <a class="more" href="apercu.html">Aperçu designer →</a>
       </div>
@@ -550,6 +593,7 @@
   </footer>
 
   <script src="engagements.js"></script>
+  <script src="bilan.js"></script>
   <script>
     (function () {
       var cfg = window.SPST || {};
@@ -565,7 +609,7 @@
       if (!grid || !cfg.engagements) return;
       grid.innerHTML = cfg.engagements.map(function (card) {
         var links = (card.links || []).map(function (link) {
-          var label = link.label || labels[link.type] || "En savoir plus";
+          var label = link.title || link.label || labels[link.type] || "En savoir plus";
           return '<a href="' + link.href + '" target="_blank" rel="noopener noreferrer">' + label + "</a>";
         }).join("");
         return (
@@ -577,6 +621,23 @@
           "</div>"
         );
       }).join("");
+    })();
+    (function () {
+      var b = window.SPST_BILAN;
+      if (!b || !b.teaser) return;
+      var t = b.teaser;
+      var h2 = document.getElementById("bilan-teaser-heading");
+      var p = document.getElementById("bilan-teaser-text");
+      var stats = document.getElementById("bilan-teaser-stats");
+      var cta = document.getElementById("bilan-teaser-cta");
+      if (h2) h2.textContent = t.heading || "";
+      if (p) p.textContent = t.text || "";
+      if (cta) cta.textContent = t.cta || "Consulter le bilan";
+      if (stats && t.stats) {
+        stats.innerHTML = t.stats.map(function (s) {
+          return '<div class="stat"><div class="num">' + s.num + '</div><div class="lbl">' + s.label + "</div></div>";
+        }).join("");
+      }
     })();
   </script>
 
