@@ -1,5 +1,5 @@
 /**
- * Bilan — bilan.html (teaser aussi sur apercu2.html)
+ * Bilan — bilan.html (teaser aussi sur index.html)
  *
  * Modifier UNIQUEMENT ce fichier pour corriger un texte,
  * ajouter une puce, ou changer les chiffres du teaser.

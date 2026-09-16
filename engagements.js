@@ -1,5 +1,5 @@
 /**
- * Engagements — apercu2.html
+ * Engagements — index.html
  *
  * Modifier UNIQUEMENT ce fichier pour corriger un texte, un lien,
  * ou ajouter un nouveau carré. Le HTML se met à jour tout seul.
@@ -15,7 +15,7 @@
  *
  * En attendant la plateforme officielle, `plateformeUrl` pointe vers
  * le Projet national. Quand la plateforme sera en ligne : remettre
- * l'URL, et relabeller « Programme » → « Plateforme » dans apercu2.html.
+ * l'URL, et relabeller « Programme » → « Plateforme » dans index.html.
  */
 window.SPST = {
   plateformeUrl: "https://pq.org/wp-content/uploads/2026/05/PQ-PROPOSITION-PRINCIPALE-PROJET-NATIONAL-V5-individuel.pdf",
