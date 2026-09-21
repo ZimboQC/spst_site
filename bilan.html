@@ -55,6 +55,8 @@
   .topbar .pill{
     background:var(--yellow); color:var(--navy-deep); font-weight:700;
     padding:3px 12px; border-radius:100px; font-size:12px;
+    letter-spacing:0; text-align:center; line-height:1.25;
+    max-width:min(100%, 42ch);
   }
   .topbar a.pill:hover{filter:brightness(1.08);}
   .nav-socials{display:none;}
@@ -138,6 +140,8 @@
   .final .btn-row{display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
   .final .btn-outline{border-color:rgba(255,255,255,.6); color:#fff;}
   .final .btn-white{background:#fff; color:var(--navy);}
+  .final .btn-yellow{background:var(--yellow); color:var(--navy-deep); white-space:normal; text-align:center;}
+  .final .btn-yellow:hover{filter:brightness(1.06);}
 
   footer{background:var(--navy-deep); color:#aab3d1; padding:40px 0 28px; font-size:13.5px;}
   footer .container{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
@@ -187,11 +191,17 @@
     }
     .nav-socials svg{width:13px; height:13px; fill:currentColor; display:block;}
   }
+  @media (max-width:520px){
+    .topbar span:first-child{display:none;}
+    .topbar .container{justify-content:center;}
+    .topbar .pill{max-width:100%;}
+  }
   @media (max-width:860px){
     :root{--nav-h:72px;}
     .container{padding:0 18px;}
     .topbar .container{gap:10px; height:auto; min-height:38px; padding:6px 18px;}
     .topbar span:first-child{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+    .topbar a.pill{flex-shrink:1;}
     nav .container{height:auto; min-height:72px; padding:10px 18px; gap:12px;}
     .brand .name{font-size:15px;}
     .btn{padding:9px 14px; font-size:13px;}
@@ -205,7 +215,7 @@
   <div class="topbar">
     <div class="container">
       <span>CAMPAGNE ÉLECTORALE — 5 OCTOBRE</span>
-      <a class="pill" href="https://docs.google.com/forms/d/e/1FAIpQLSdI4J6sxR7lOWfZi_cOEMPE2mH1FVCjOaFvioKjw6k94ga7Nw/viewform" target="_blank" rel="noopener noreferrer">S'IMPLIQUER</a>
+      <a class="pill" href="https://docs.google.com/forms/d/e/1FAIpQLSf-JL12_QbGb0IVoZo6PEUL2uC2vcLR0zio3r3g5Ck43d7PzA/viewform" target="_blank" rel="noopener noreferrer">Vous appuyez Simon-Pierre? Dites-le nous!</a>
     </div>
   </div>
 
@@ -265,7 +275,7 @@
       <h2>Le 5 octobre, faisons le choix de la confiance.</h2>
       <p>Joignez-vous à l'équipe pour donner à Saint-Hyacinthe le poids qu'elle mérite.</p>
       <div class="btn-row">
-        <a class="btn btn-white" href="https://docs.google.com/forms/d/e/1FAIpQLSdI4J6sxR7lOWfZi_cOEMPE2mH1FVCjOaFvioKjw6k94ga7Nw/viewform" target="_blank" rel="noopener noreferrer">S'impliquer</a>
+        <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLSf-JL12_QbGb0IVoZo6PEUL2uC2vcLR0zio3r3g5Ck43d7PzA/viewform" target="_blank" rel="noopener noreferrer">Vous appuyez Simon-Pierre? Dites-le nous!</a>
         <a class="btn btn-outline" href="https://pq.org/devenir-membre/" target="_blank" rel="noopener noreferrer">Devenir membre</a>
         <a class="btn btn-outline" href="https://pq.org/dons/" target="_blank" rel="noopener noreferrer">Faire un don</a>
       </div>

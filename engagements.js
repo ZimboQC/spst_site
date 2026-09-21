@@ -8,10 +8,12 @@
  *
  * Liens (le libellé se choisit selon `type`, si aucun `title`) :
  *   "video"       → « Visionner ma capsule vidéo »  (Facebook)
+ *                 → s'il y en a plusieurs : « … 1 », « … 2 », …
  *   "communique"  → « Voir mon communiqué »         (communiqué de SP, PDF local)
  *   "parti"       → « En savoir plus »              (communiqué du Parti)
  *
- * Si `title` est fourni, c'est ce texte qui s'affiche (lien direct).
+ * Si `title` est fourni, c'est ce texte qui s'affiche (lien direct),
+ * sauf pour `type: "video"` : le libellé standard s'applique toujours.
  *
  * En attendant la plateforme officielle, `plateformeUrl` pointe vers
  * le Projet national. Quand la plateforme sera en ligne : remettre
@@ -26,11 +28,13 @@ window.SPST = {
       title: "Fin du gaspillage et du copinage",
       text: "Mandat porté par la rigueur, la reddition de comptes et le respect de la parole donnée",
       links: [
-        { type: "video", title: "Capsule vidéo", href: "https://www.facebook.com/share/v/1J6UbzWWjy/" },
-        { type: "video", title: "Autre capsule", href: "https://www.facebook.com/share/r/1B3ABrTLZq/" },
+        { type: "video", href: "https://www.facebook.com/share/v/1J6UbzWWjy/" },
+        { type: "video", href: "https://www.facebook.com/share/r/1B3ABrTLZq/" },
         { type: "communique", title: "Gaspillage caquiste", href: "assets/communique-gaspillage-caquiste.pdf" },
         { type: "parti", title: "Ménage dans la bureaucratie", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-lancera-un-grand-menage-dans-la-bureaucratie-afin-de-recentrer-letat-sur-ses-missions-fondamentales/" },
-        { type: "parti", title: "Reddition de comptes", href: "https://pq.org/nouvelles/le-parti-quebecois-offre-une-baisse-dimpot-significative-de-pres-de-20-aux-pme-quebecoises/" }
+        { type: "parti", title: "Reddition de comptes", href: "https://pq.org/nouvelles/le-parti-quebecois-offre-une-baisse-dimpot-significative-de-pres-de-20-aux-pme-quebecoises/" },
+        { type: "parti", title: "Atteinte de l'équilibre budgétaire", href: "https://pq.org/nouvelles/le-parti-quebecois-presente-un-cadre-financier-prudent-et-responsable-atteignant-lequilibre-budgetaire-en-2028-2029/" },
+        { type: "parti", title: "Gel du salaire des députés et ministres", href: "https://pq.org/nouvelles/exemplarite-de-letat-un-gouvernement-du-parti-quebecois-gelera-le-salaire-des-deputes-ministres-et-dirigeants-des-societes-detat/" }
       ]
     },
     {
@@ -38,7 +42,7 @@ window.SPST = {
       title: "Innovation agroalimentaire",
       text: "Appui au Centre d'innovation et d'entrepreneuriat agroalimentaire, pour le rayonnement de notre technopole",
       links: [
-        { type: "video", title: "Capsule vidéo", href: "https://www.facebook.com/share/v/19PbuU7rAK/" },
+        { type: "video", href: "https://www.facebook.com/share/v/19PbuU7rAK/" },
         { type: "communique", title: "Technopole agroalimentaire", href: "assets/communique-technopole-agroalimentaire.pdf" }
       ]
     },
@@ -47,7 +51,7 @@ window.SPST = {
       title: "Accès au logement et à la propriété",
       text: "Un accès amélioré au logement et à la propriété pour les familles de la région.",
       links: [
-        { type: "video", title: "Capsule vidéo", href: "https://www.facebook.com/share/r/14oXoDZ5hKf/" },
+        { type: "video", href: "https://www.facebook.com/share/r/14oXoDZ5hKf/" },
         { type: "parti", title: "Plan d'accès à la propriété", href: "https://pq.org/nouvelles/le-parti-quebecois-presente-son-plan-dacces-a-la-propriete/" }
       ]
     },
@@ -56,15 +60,19 @@ window.SPST = {
       title: "Révision responsable des seuils d'immigration",
       text: "Un modèle viable pour accueillir les immigrants.",
       links: [
+        { type: "video", href: "https://www.facebook.com/share/v/18DJeJZfjb/" },
         { type: "parti", title: "Baisse des seuils d'immigration", href: "https://pq.org/nouvelles/le-parti-quebecois-promet-une-baisse-significative-des-seuils-dimmigration/" }
       ]
     },
     {
       tag: "Santé",
       title: "Soins de santé décentralisés",
-      text: "Abolition de Santé Québec pour des soins directs à la population",
+      text: "Une première ligne plus efficace, des soins directs à la population",
       links: [
-        { type: "parti", title: "Premier volet du plan Santé", href: "https://pq.org/nouvelles/le-parti-quebecois-abolira-sante-quebec-afin-de-reinvestir-largent-dans-des-soins-directs-a-la-population/" }
+        { type: "parti", title: "Abolition de Santé Québec", href: "https://pq.org/nouvelles/le-parti-quebecois-abolira-sante-quebec-afin-de-reinvestir-largent-dans-des-soins-directs-a-la-population/" },
+        { type: "parti", title: "Lutte à la surprescription", href: "https://pq.org/nouvelles/lutte-a-surprescription-prendre-soin-de-nos-aines-et-de-nos-jeunes/" },
+        { type: "parti", title: "De nouvelles maisons d'hébergement", href: "https://pq.org/nouvelles/le-parti-quebecois-veut-renforcer-le-reseau-des-maisons-dhebergement-pour-femmes-partout-au-quebec/" },
+        { type: "parti", title: "Prévention et première ligne", href: "https://pq.org/nouvelles/sante-et-service-sociaux-investir-en-prevention-et-faire-des-clsc-la-veritable-porte-dentree-du-reseau/" }
       ]
     },
     {
@@ -72,12 +80,13 @@ window.SPST = {
       title: "Refonte du système d'éducation",
       text: "Une chance égale de réussir pour tous les jeunes et tenue d'États généraux sur l'avenir de l'éducation",
       links: [
-        { type: "parti", title: "Cinq grands chantiers en éducation", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-lancera-cinq-grands-chantiers-en-education/" }
+        { type: "parti", title: "Cinq grands chantiers en éducation", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-lancera-cinq-grands-chantiers-en-education/" },
+        { type: "parti", title: "Rémunération des stages dans les secteurs publics", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-remunerera-des-stages-pratiques-de-formation/" }
       ]
     },
     {
       tag: "Culture",
-      title: "Valoriser la culture québécoise",
+      title: "Rayonnement de la culture québécoise",
       text: "Une culture accessible pour les jeunes et un meilleur accompagnement des artistes",
       links: [
         { type: "parti", title: "Découvrabilité et investissements", href: "https://pq.org/nouvelles/le-parti-quebecois-sengage-a-favoriser-lacces-des-jeunes-a-la-culture-quebecoise-et-a-mieux-accompagner-les-artistes-du-quebec/" }
@@ -88,7 +97,8 @@ window.SPST = {
       title: "Affirmation nationale",
       text: "La voix du Québec pour défendre ses propres intérêts.",
       links: [
-        { type: "video", href: "https://www.facebook.com/share/v/1GSNqGGN75/" }
+        { type: "video", href: "https://www.facebook.com/share/v/1GSNqGGN75/" },
+        { type: "parti", title: "Valorisation de la langue française", href: "https://pq.org/nouvelles/le-parti-quebecois-sengage-a-renverser-le-declin-du-francais/" }
       ]
     },
     {
@@ -109,12 +119,20 @@ window.SPST = {
     },
     {
       tag: "Coût de la vie",
-      title: "Baisse du coût de la vie et lutte à la pauvreté",
-      text: "Un plan concret pour les familles, la classe moyenne, les jeunes et les moins nantis",
+      title: "Baisse du coût de la vie",
+      text: "Un plan concret pour les familles et la classe moyenne",
       links: [
         { type: "parti", title: "Taxe réduite sur les biens usagés", href: "https://pq.org/nouvelles/le-parti-quebecois-va-detaxer-les-biens-et-les-voitures-usages-pour-retourner-des-milliers-de-dollars-dans-le-portefeuille-des-familles/" },
-        { type: "parti", title: "Soutien à la sécurité alimentaire", href: "https://pq.org/nouvelles/le-parti-quebecois-va-investir-100-millions-de-dollars-supplementaire-pour-financer-laide-et-la-securite-alimentaire/" },
         { type: "parti", title: "Répit pour les automobilistes", href: "https://pq.org/nouvelles/le-parti-quebecois-sattaque-a-la-hausse-du-cout-de-lessence-en-reduisant-les-taxes-et-en-offrant-un-remboursement-aux-menages-les-moins-nantis/" }
+      ]
+    },
+    {
+      tag: "Pauvreté",
+      title: "Lutte à la pauvreté et à l'itinérance",
+      text: "Des objectifs ambitieux et les moyens d'y parvenir",
+      links: [
+        { type: "parti", title: "Réduction de moitié de l'itinérance", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-investira-un-milliard-de-dollars-pour-reduire-litinerance-de-50-dici-2030/" },
+        { type: "parti", title: "Soutien à la sécurité alimentaire", href: "https://pq.org/nouvelles/le-parti-quebecois-va-investir-100-millions-de-dollars-supplementaire-pour-financer-laide-et-la-securite-alimentaire/" }
       ]
     },
     {
@@ -123,6 +141,14 @@ window.SPST = {
       text: "Moins d'impôts, moins de règles, plus de place pour nos entrepreneurs",
       links: [
         { type: "parti", title: "Baisses d'impôts pour les PME", href: "https://pq.org/nouvelles/le-parti-quebecois-offre-une-baisse-dimpot-significative-de-pres-de-20-aux-pme-quebecoises/" }
+      ]
+    },
+    {
+      tag: "Environnement",
+      title: "Protection rigoureuse de l'environnement",
+      text: "Une feuille de route détaillée, avec près d'une centaine de mesures concrètes",
+      links: [
+        { type: "parti", title: "Une plateforme complète", href: "https://pq.org/nouvelles/le-plan-environnement-du-parti-quebecois-2026-2034-prendre-ses-responsabilites-senrichir-et-ameliorer-notre-qualite-de-vie/" }
       ]
     }
   ]
