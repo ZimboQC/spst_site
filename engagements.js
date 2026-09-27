@@ -69,6 +69,8 @@ window.SPST = {
       title: "Soins de santé décentralisés",
       text: "Une première ligne plus efficace, des soins directs à la population",
       links: [
+        { type: "communique", title: "Trois grandes priorités", href: "assets/communique-mesures-en-sante.pdf" },
+        { type: "video", href: "https://www.facebook.com/share/r/1DrUzpJEjd/" },
         { type: "parti", title: "Abolition de Santé Québec", href: "https://pq.org/nouvelles/le-parti-quebecois-abolira-sante-quebec-afin-de-reinvestir-largent-dans-des-soins-directs-a-la-population/" },
         { type: "parti", title: "Lutte à la surprescription", href: "https://pq.org/nouvelles/lutte-a-surprescription-prendre-soin-de-nos-aines-et-de-nos-jeunes/" },
         { type: "parti", title: "De nouvelles maisons d'hébergement", href: "https://pq.org/nouvelles/le-parti-quebecois-veut-renforcer-le-reseau-des-maisons-dhebergement-pour-femmes-partout-au-quebec/" },
@@ -80,6 +82,7 @@ window.SPST = {
       title: "Refonte du système d'éducation",
       text: "Une chance égale de réussir pour tous les jeunes et tenue d'États généraux sur l'avenir de l'éducation",
       links: [
+        { type: "video", href: "https://www.facebook.com/share/r/1AaGNNC31a/" },
         { type: "parti", title: "Cinq grands chantiers en éducation", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-lancera-cinq-grands-chantiers-en-education/" },
         { type: "parti", title: "Rémunération des stages dans les secteurs publics", href: "https://pq.org/nouvelles/un-gouvernement-du-parti-quebecois-remunerera-des-stages-pratiques-de-formation/" }
       ]
@@ -119,9 +122,10 @@ window.SPST = {
     },
     {
       tag: "Coût de la vie",
-      title: "Baisse du coût de la vie",
+      title: "Coût de la vie et famille",
       text: "Un plan concret pour les familles et la classe moyenne",
       links: [
+        { type: "parti", title: "Une nation tournée vers les familles", href: "https://pq.org/nouvelles/freiner-le-declin-de-la-natalite-un-gouvernement-du-parti-quebecois-va-agir-pour-que-chaque-projet-familial-desire-puisse-se-concretiser/" },
         { type: "parti", title: "Taxe réduite sur les biens usagés", href: "https://pq.org/nouvelles/le-parti-quebecois-va-detaxer-les-biens-et-les-voitures-usages-pour-retourner-des-milliers-de-dollars-dans-le-portefeuille-des-familles/" },
         { type: "parti", title: "Répit pour les automobilistes", href: "https://pq.org/nouvelles/le-parti-quebecois-sattaque-a-la-hausse-du-cout-de-lessence-en-reduisant-les-taxes-et-en-offrant-un-remboursement-aux-menages-les-moins-nantis/" }
       ]
@@ -141,6 +145,14 @@ window.SPST = {
       text: "Moins d'impôts, moins de règles, plus de place pour nos entrepreneurs",
       links: [
         { type: "parti", title: "Baisses d'impôts pour les PME", href: "https://pq.org/nouvelles/le-parti-quebecois-offre-une-baisse-dimpot-significative-de-pres-de-20-aux-pme-quebecoises/" }
+      ]
+    },
+    {
+      tag: "Technologies",
+      title: "Encadrement de l'intelligence artificielle",
+      text: "Une technologie porteuse d'opportunités, mais sécuritaire pour la population",
+      links: [
+        { type: "parti", title: "Encadrer l'intelligence artificielle", href: "https://pq.org/nouvelles/le-parti-quebecois-sengage-a-creer-un-comite-dexperts-et-dencadrement-sur-lintelligence-artificielle/" }
       ]
     },
     {
