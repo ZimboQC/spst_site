@@ -209,10 +209,11 @@
     background:var(--blue-light); padding:4px 10px; border-radius:100px; margin-bottom:14px;
   }
   .card h3{font-size:16.5px; margin-bottom:8px; min-width:0; overflow-wrap:break-word;}
-  .card p{font-size:14px; flex:1; min-width:0; overflow-wrap:break-word;}
+  .card p{font-size:14px; min-width:0; overflow-wrap:break-word;}
   .card-links{
-    margin-top:auto; padding-top:16px;
-    display:flex; flex-direction:column; gap:8px;
+    flex:1;
+    margin-top:16px;
+    display:flex; flex-direction:column; justify-content:center; gap:8px;
   }
   .card-links a{
     font-size:13px; font-weight:600; color:var(--blue);
